@@ -18,12 +18,26 @@ public class ConditionalsExercise {
         }
          */
 
+        /*
         // Task 2
         int x = 7;
         if (x == 0) {
             System.out.println("x is zero");
         } else {
             System.out.println("x is not zero");
+        }
+         */
+
+        // Task 3
+        int x = 15, y = 24;
+        if ( x % 2 == 0 && y % 2 == 0) {
+            System.out.println("x and y are even numbers");
+        } else if (x % 2 != 0 && y % 2 == 0) {
+            System.out.println("x is odd and y is even");
+        } else if (x % 2 == 0 && y % 2 != 0) {
+            System.out.println("x is even and y is odd");
+        } else {
+            System.out.println("x and y are odd numbers");
         }
     }
 }
