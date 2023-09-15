@@ -3,6 +3,7 @@ package conditionals;
 public class ConditionalsExercise {
     public static void main(String[] args) {
         // Task 1
+        /*
         int x = 3, y= 5;
         if (x >= 0) {
             if (y < x) {
@@ -14,6 +15,15 @@ public class ConditionalsExercise {
             }
         } else {
             System.out.println("x is negative");
+        }
+         */
+
+        // Task 2
+        int x = 7;
+        if (x == 0) {
+            System.out.println("x is zero");
+        } else {
+            System.out.println("x is not zero");
         }
     }
 }
