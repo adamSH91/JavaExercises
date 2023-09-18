@@ -1,14 +1,18 @@
 import classes.*;
 public class Main {
     public static void main(String[] args) {
-        Car car = new Car("Blue", "REG", "Audi", "Q7", 0.0, 20.0, 30.0);
+        Supercar car = new Supercar("Blue", "REG", "Audi", "Q7", 0.0, 20.0, 30.0);
+        Convertible convertible = new Convertible("Red", "REG", "C-class", "Mercedes", 0.0, 0.0, 0.0);
         Driver driver = new Driver(car);
+        Driver driver2 = new Driver(convertible);
 
         car.setMiles(100.0);
         car.setColour("White");
         car.setReg("REG1");
         car.setMake("Volkswagen");
         car.setModel("Polo");
+        driver.toggleSuperMode();
+        driver2.toggleRooftop();
 
         System.out.println(car.getMiles());
         System.out.println(car.getColour());

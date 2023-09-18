@@ -19,4 +19,18 @@ public class Driver {
         this.car.increaseMiles(miles);
         this.car.setPosition(new Position(newX, newY));
     }
+
+    public void toggleRooftop() {
+        if (this.car.getClass() == Convertible.class) {
+            Convertible convertible = (Convertible) this.car;
+            convertible.setRooftopOpen(!convertible.getRooftopOpen());
+        }
+    }
+
+    public void toggleSuperMode() {
+        if (this.car.getClass() == Supercar.class) {
+            Supercar supercar = (Supercar) this.car;
+            supercar.setSuperModeOn(!supercar.isSuperModeOn());
+        }
+    }
 }

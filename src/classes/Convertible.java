@@ -3,12 +3,13 @@ package classes;
 public class Convertible extends Car {
     private boolean rooftopOpen;
 
-    public Convertible() {
-        super("Red", "REG", "Enzo", "Ferrari", 0.0, 0.0, 0.0);
+    public Convertible(String colour, String reg, String model, String make, double miles,
+                       double x, double y) {
+        super(colour, reg, model, make, miles, x, y);
         this.rooftopOpen = false;
     }
 
-    public boolean isRooftopOpen() {
+    public boolean getRooftopOpen() {
         return rooftopOpen;
     }
 

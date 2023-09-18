@@ -3,8 +3,9 @@ package classes;
 public class Supercar extends Car {
     private boolean superModeOn;
 
-    public Supercar() {
-        super("Black", "REG", "C-class", "Mercedes", 0.0, 0.0, 0.0);
+    public Supercar(String colour, String reg, String model, String make, double miles,
+                    double x, double y) {
+        super(colour, reg, model, make, miles, x, y);
         this.superModeOn = false;
     }
 
