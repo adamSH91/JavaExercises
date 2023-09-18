@@ -13,10 +13,17 @@ public class Calculator {
         System.out.println("Please enter an operation:");
         char operation = scan.next().charAt(0);
 
-        System.out.println("The result is " + calculator(numberOne, numberTwo, operation));
+        double result = calculator(numberOne, numberTwo, operation);
+
+        if (result == Double.MIN_VALUE) {
+            System.out.println("Invalid operation. Please try again.");
+        } else {
+            System.out.println("The result is " + result);
+        }
     }
+
     private static double calculator(int numberOne, int numberTwo, char operation) {
-        double result = 0.0;
+        double result = Double.MIN_VALUE;
         switch (operation) {
             case '-':
                 result = numberOne - numberTwo;
