@@ -17,7 +17,7 @@ public class Driver {
 
     public void drive(double miles, double newX, double newY) {
         double previousMiles = this.car.getMiles();
-        this.car.setMiles(previousMiles += miles);
+        this.car.increaseMiles(miles);
         this.car.setPosition(new Position(newX, newY));
     }
 }
