@@ -68,4 +68,11 @@ public class Car {
     public void increaseMiles(double miles) {
         this.miles += miles;
     }
+
+    @Override
+    public String toString() {
+        return "Car colour: " + this.colour + ", reg: " + this.reg + ", make: " +
+        this.make + ", model: " + this.model + ", miles: " + this.miles + ", position: (" +
+                this.position.getX() + ", " + this.position.getY() + ")";
+    }
 }
