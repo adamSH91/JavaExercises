@@ -8,7 +8,7 @@ public class BankAccount {
 
     public BankAccount(String accountName, int accountNumber, double balance) {
         this.accountName = accountName;
-        this.accountNumber = accountNumberCounter;
+        this.accountNumber = accountNumber;
         accountNumberCounter++;
         this.balance = balance;
     }

@@ -1,10 +1,13 @@
 package classes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bank {
-    private BankAccount[] bankAccounts;
+    private List<BankAccount> bankAccounts;
 
     public Bank() {
-        this.bankAccounts = new BankAccount[0];
+        this.bankAccounts = new ArrayList<>();
     }
 
     public BankAccount findAccount(int accountNumber) {
@@ -21,11 +24,6 @@ public class Bank {
     }
 
     public void addAccount(BankAccount newBankAccount) {
-        BankAccount[] newList = new BankAccount[bankAccounts.length + 1];
-
-        System.arraycopy(bankAccounts, 0, newList, 0, bankAccounts.length);
-
-        newList[newList.length - 1] = newBankAccount;
-        bankAccounts = newList;
+        bankAccounts.add(newBankAccount);
     }
 }
