@@ -46,10 +46,30 @@ class BankAccountTest {
     }
 
     @Test
-    public void removeFunds() {
+    public void removeFunds() throws Exception {
         double fundsToRemove = 200.0;
         BankAccount bankAccount = new BankAccount("Account1", 5, 400.0);
 
         assertEquals(200.0, bankAccount.removeFunds(200.0));
+    }
+
+    @Test
+    public void checkAccountNumberCounterIncrementsAutomatically() {
+        BankAccount bankAccount = new BankAccount("Account1", 5, 400.0);
+        BankAccount bankAccount2 = new BankAccount("Account2", 5, 400.0);
+        BankAccount bankAccount3 = new BankAccount("Account3", 5, 400.0);
+
+        assertEquals(3, BankAccount.accountNumberCounter);
+    }
+
+    @Test
+    public void removeFundsFails() throws Exception {
+        BankAccount bankAccount = new BankAccount(0, 0.0);
+
+        try {
+            bankAccount.removeFunds(20.0);
+        } catch (Exception e) {
+            assertEquals("You can't have a balance less than zero!", e.getMessage());
+        }
     }
 }

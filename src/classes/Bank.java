@@ -1,7 +1,6 @@
 package classes;
 
 public class Bank {
-    private int accountNumber = 0;
     private BankAccount[] bankAccounts;
 
     public Bank() {
