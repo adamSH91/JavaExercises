@@ -1,3 +1,4 @@
+import animals.*;
 import classes.*;
 public class Main {
     public static void main(String[] args) {
@@ -24,6 +25,19 @@ public class Main {
         System.out.println(driver.getCar().getPosition().getX());
         System.out.println(driver.getCar().getPosition().getY());
 
+        /*
+        Amphibian[] amphibians = {new Amphibian("frog", 1.0, "amphibian",
+                "carnivore", 100.0),
+                new Amphibian("salamander", 3.0, "amphibian",
+                "carnivore", 200.0),
+                new Amphibian("toad", 4.0, "amphibian",
+                "carnivore", 300.0)
+        };
+
+        for (Amphibian amphibian: amphibians) {
+            System.out.println(amphibian.toString());
+        }
+        */
 
     }
 }
