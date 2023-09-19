@@ -1,3 +1,5 @@
+package test;
+
 import classes.Vehicle;
 
 import static org.junit.jupiter.api.Assertions.*;
