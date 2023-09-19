@@ -1,6 +1,7 @@
 import animals.*;
 import classes.*;
 import interfaces.IDriveable;
+import interfaces.IFlyable;
 
 public class Main {
     public static void main(String[] args) {
@@ -44,6 +45,9 @@ public class Main {
         Lawnmower lawnMower = new Lawnmower(0.0, 0.0, 0.0);
         lawnMower.mowLawn(2.0);
         System.out.println(lawnMower.getMiles());
+
+        IFlyable plane = new Plane(2010, "engine", 50.0, true, 100.0);
+        plane.fly(100.0);
 
     }
 }
