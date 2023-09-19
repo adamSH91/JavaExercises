@@ -1,17 +1,19 @@
 package classes;
 
-public class Driver {
-    private Car car;
+import interfaces.IDriveable;
 
-    public Driver(Car car) {
+public class Driver {
+    private IDriveable car;
+
+    public Driver(IDriveable car) {
         this.car = car;
     }
 
-    public Car getCar() {
+    public IDriveable getCar() {
         return car;
     }
 
-    public void setCar(Car car) {
+    public void setCar(IDriveable car) {
         this.car = car;
     }
 

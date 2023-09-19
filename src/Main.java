@@ -1,5 +1,7 @@
 import animals.*;
 import classes.*;
+import interfaces.IDriveable;
+
 public class Main {
     public static void main(String[] args) {
         Supercar car = new Supercar("Blue", "REG", "Audi", "Q7", 0.0, 20.0, 30.0);
@@ -38,6 +40,10 @@ public class Main {
             System.out.println(amphibian.toString());
         }
         */
+
+        Lawnmower lawnMower = new Lawnmower(0.0, 0.0, 0.0);
+        lawnMower.mowLawn(2.0);
+        System.out.println(lawnMower.getMiles());
 
     }
 }
