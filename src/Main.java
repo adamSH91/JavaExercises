@@ -4,7 +4,7 @@ import interfaces.IDriveable;
 import interfaces.IFlyable;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Supercar car = new Supercar("Blue", "REG", "Audi", "Q7", 0.0, 20.0, 30.0);
         Convertible convertible = new Convertible("Red", "REG", "C-class", "Mercedes", 0.0, 0.0, 0.0);
         Driver driver = new Driver(car);
@@ -48,6 +48,24 @@ public class Main {
 
         IFlyable plane = new Plane(2010, "engine", 50.0, true, 100.0);
         plane.fly(100.0);
+
+        Bank bank = new Bank();
+        bank.addAccount(new BankAccount("Account 1", 1, 0.0));
+        bank.addAccount(new BankAccount("Account 2", 2, 10.0));
+        bank.addAccount(new BankAccount("Account 3", 100, 100.0));
+
+        System.out.println(bank.getBankAccountByIndex(0));
+        bank.printAllBankAccounts();
+
+        System.out.println("----");
+
+        bank.removeBankAccountByIndex(2);
+        bank.printAllBankAccounts();
+
+        System.out.println("----");
+
+        bank.removeBankAccountByAccountNumber(1);
+        bank.printAllBankAccounts();
 
     }
 }

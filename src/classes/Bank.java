@@ -41,4 +41,26 @@ public class Bank {
 
         return newBankAccounts;
     }
+
+    public BankAccount getBankAccountByIndex(int index) {
+        return bankAccounts.get(index);
+    }
+
+    public void printAllBankAccounts() {
+        for (BankAccount bankAccount: bankAccounts) {
+            System.out.println(bankAccount);
+        }
+    }
+
+    public void removeBankAccountByIndex(int index) {
+        bankAccounts.remove(index);
+    }
+
+    public void removeBankAccountByAccountNumber(int accountNumber) {
+        for (BankAccount bankAccount: bankAccounts) {
+            if (bankAccount.getAccountNumber() == accountNumber) {
+                bankAccounts.remove(bankAccount);
+            }
+        }
+    }
 }
