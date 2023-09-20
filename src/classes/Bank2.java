@@ -22,11 +22,17 @@ public class Bank2 {
         }
     }
 
-    public void deleteBankAccount(BankAccount bankAccount) {
-        if (!bankAccounts.contains(bankAccount)) return;
+    public void deleteBankAccount(int accountNumber) {
+        BankAccount bankAccountToRemove = null;
+        for (BankAccount bankAccount: bankAccounts) {
+            if (bankAccount.getAccountNumber() == accountNumber) {
+                bankAccountToRemove = bankAccount;
+                break;
+            }
+        }
 
-        bankAccounts.remove(bankAccount);
-    }
+        bankAccounts.remove(bankAccountToRemove);
+     }
 
     public BankAccount findBankAccount(int accountNumber) {
         for (BankAccount bankAccount: bankAccounts) {
