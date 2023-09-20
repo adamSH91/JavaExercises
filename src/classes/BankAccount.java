@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.Objects;
+
 public class BankAccount {
     private String accountName;
     private int accountNumber;
@@ -57,6 +59,19 @@ public class BankAccount {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BankAccount that = (BankAccount) o;
+        return accountNumber == that.accountNumber;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountNumber);
     }
 
     @Override
