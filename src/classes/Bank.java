@@ -46,10 +46,13 @@ public class Bank {
         return bankAccounts.get(index);
     }
 
-    public void printAllBankAccounts() {
+    public String printAllBankAccounts() {
+        StringBuilder sb = new StringBuilder();
         for (BankAccount bankAccount: bankAccounts) {
-            System.out.println(bankAccount);
+            sb.append(bankAccount.toString()).append("\n");
         }
+
+        return sb.toString();
     }
 
     public void removeBankAccountByIndex(int index) {

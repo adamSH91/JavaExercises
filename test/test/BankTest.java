@@ -15,9 +15,12 @@ class BankTest {
     @BeforeEach
     void setUp() throws Exception {
         testBank = new Bank();
-        testBank.addAccount(new BankAccount("Account 1", 1, 0.0));
-        testBank.addAccount(new BankAccount("Account 2", 2, 10.0));
-        testBank.addAccount(new BankAccount("Account 3", 100, 100.0));
+        BankAccount bankAccount1 = new BankAccount("Account 1", 1, 0.0);
+        BankAccount bankAccount2 = new BankAccount("Account 2", 2, 10.0);
+        BankAccount bankAccount3 = new BankAccount("Account 3", 100, 100.0);
+        testBank.addAccount(bankAccount1);
+        testBank.addAccount(bankAccount2);
+        testBank.addAccount(bankAccount3);
     }
 
     @Test
@@ -35,13 +38,6 @@ class BankTest {
         assertEquals("Account 2", bankAccount.getAccountName());
         assertEquals(10.0, bankAccount.getBalance());
     }
-
-    /*
-    @AfterAll
-    void cleanup() {
-
-    }
-    */
 
     @Test
     public void addAccount() throws Exception {
@@ -64,5 +60,51 @@ class BankTest {
         assertEquals(2, bankAccounts[1].getAccountNumber());
         assertEquals(100, bankAccounts[2].getAccountNumber());
     }
+
+    @Test
+    public void getBankAccountByIndex() throws Exception {
+        Bank bank = new Bank();
+        BankAccount bankAccount = new BankAccount("Account 20", 20, 0.0);
+        bank.addAccount(bankAccount);
+
+        assertEquals(bankAccount, bank.getBankAccountByIndex(0));
+    }
+
+    @Test
+    public void removeBankAccountByIndex() {
+        testBank.removeBankAccountByIndex(0);
+        assertEquals("Account number: 2, account name: Account 2, account balance: 10.0\n" +
+                "Account number: 100, account name: Account 3, account balance: 100.0\n",
+                testBank.printAllBankAccounts());
+    }
+
+    @Test
+    public void removeBankAccountByAccountNumber() {
+        testBank.removeBankAccountByAccountNumber(2);
+        assertEquals("Account number: 1, account name: Account 1, account balance: 0.0\n" +
+                "Account number: 100, account name: Account 3, account balance: 100.0\n",
+                testBank.printAllBankAccounts());
+    }
+
+    @Test
+    public void printAllBankAccounts() {
+        assertEquals("Account number: 1, account name: Account 1, account balance: 0.0\n" +
+                "Account number: 2, account name: Account 2, account balance: 10.0\n" +
+                "Account number: 100, account name: Account 3, account balance: 100.0\n",
+                testBank.printAllBankAccounts());
+
+    }
+
+    @Test
+    public void calculateBalanceAverageForAllAccounts() {
+        assertEquals(36.66, testBank.calculateBalanceAverageForAllAccounts());
+    }
+
+    /*
+    @AfterAll
+    void cleanup() {
+
+    }
+    */
 
 }
