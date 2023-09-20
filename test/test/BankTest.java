@@ -13,7 +13,7 @@ class BankTest {
     private Bank testBank;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws Exception {
         testBank = new Bank();
         testBank.addAccount(new BankAccount("Account 1", 1, 0.0));
         testBank.addAccount(new BankAccount("Account 2", 2, 10.0));
@@ -43,5 +43,26 @@ class BankTest {
     }
     */
 
+    @Test
+    public void addAccount() throws Exception {
+        testBank.addAccount(new BankAccount("Account 4", 4, 0.0));
+    }
+
+    @Test
+    public void addDuplicateAccount() throws Exception {
+        try {
+            testBank.addAccount(new BankAccount("Account 1", 1, 0.0));
+        } catch (Exception e) {
+            assertEquals("There is already an account with the same number", e.getMessage());
+        }
+    }
+
+    @Test
+    public void getAllBankAccountsAsArray() {
+        BankAccount[] bankAccounts = testBank.getAllBankAccountsAsArray();
+        assertEquals(1, bankAccounts[0].getAccountNumber());
+        assertEquals(2, bankAccounts[1].getAccountNumber());
+        assertEquals(100, bankAccounts[2].getAccountNumber());
+    }
 
 }
