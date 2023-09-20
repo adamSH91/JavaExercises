@@ -62,6 +62,6 @@ public class BankAccount {
     @Override
     public String toString() {
         return "Account number: " + this.accountNumber + ", account name: " +
-                this.accountName + ", account balance: " + this.balance;
+                this.accountName + ", account balance: " + this.balance + " ";
     }
 }

@@ -2,6 +2,7 @@ package classes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Bank {
     private List<BankAccount> bankAccounts;
@@ -11,35 +12,21 @@ public class Bank {
     }
 
     public BankAccount findAccount(int accountNumber) {
-        BankAccount foundAccount = null;
-
-        for (BankAccount bankAccount: bankAccounts) {
-            if (bankAccount.getAccountNumber() == accountNumber) {
-                foundAccount = bankAccount;
-                break;
-            }
-        }
-
-        return foundAccount;
+        return bankAccounts.stream().filter(bankAccount -> bankAccount.getAccountNumber() == accountNumber).findFirst().get();
     }
 
     public void addAccount(BankAccount newBankAccount) throws Exception{
-        for (BankAccount bankAccount: bankAccounts) {
-            if (bankAccount.getAccountNumber() == newBankAccount.getAccountNumber()) {
-                throw new Exception("There is already an account with the same number");
-            }
+        boolean bankAccountFound = bankAccounts.stream().anyMatch(bankAccount -> bankAccount.getAccountNumber() == newBankAccount.getAccountNumber());
+
+        if (bankAccountFound) {
+            throw new Exception("There is already an account with the same number");
+        } else {
+            bankAccounts.add(newBankAccount);
         }
-        bankAccounts.add(newBankAccount);
     }
 
     public BankAccount[] getAllBankAccountsAsArray() {
-        BankAccount[] newBankAccounts = new BankAccount[bankAccounts.size()];
-
-        for (int i = 0; i < bankAccounts.size(); i++) {
-            newBankAccounts[i] = bankAccounts.get(i);
-        }
-
-        return newBankAccounts;
+        return bankAccounts.toArray(new BankAccount[0]);
     }
 
     public BankAccount getBankAccountByIndex(int index) {
@@ -48,10 +35,7 @@ public class Bank {
 
     public String printAllBankAccounts() {
         StringBuilder sb = new StringBuilder();
-        for (BankAccount bankAccount: bankAccounts) {
-            sb.append(bankAccount.toString()).append("\n");
-        }
-
+        bankAccounts.forEach(sb::append);
         return sb.toString();
     }
 
@@ -60,19 +44,12 @@ public class Bank {
     }
 
     public void removeBankAccountByAccountNumber(int accountNumber) {
-        for (BankAccount bankAccount: bankAccounts) {
-            if (bankAccount.getAccountNumber() == accountNumber) {
-                bankAccounts.remove(bankAccount);
-            }
-        }
+        bankAccounts.removeIf(bankAccount -> bankAccount.getAccountNumber() == accountNumber);
     }
 
     public double calculateBalanceAverageForAllAccounts() {
-        double balancesSum = 0.0;
-        for (BankAccount bankAccount: bankAccounts) {
-            balancesSum += bankAccount.getBalance();
-        }
-
+        double balancesSum = bankAccounts.stream().filter
+                (bankAccount -> bankAccount.getBalance() >= 0.0).mapToDouble(BankAccount::getBalance).sum();
         return Math.floor(balancesSum / bankAccounts.size() * 100) / 100;
     }
 }

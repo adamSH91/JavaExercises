@@ -73,24 +73,24 @@ class BankTest {
     @Test
     public void removeBankAccountByIndex() {
         testBank.removeBankAccountByIndex(0);
-        assertEquals("Account number: 2, account name: Account 2, account balance: 10.0\n" +
-                "Account number: 100, account name: Account 3, account balance: 100.0\n",
+        assertEquals("Account number: 2, account name: Account 2, account balance: 10.0 " +
+                "Account number: 100, account name: Account 3, account balance: 100.0 ",
                 testBank.printAllBankAccounts());
     }
 
     @Test
     public void removeBankAccountByAccountNumber() {
         testBank.removeBankAccountByAccountNumber(2);
-        assertEquals("Account number: 1, account name: Account 1, account balance: 0.0\n" +
-                "Account number: 100, account name: Account 3, account balance: 100.0\n",
+        assertEquals("Account number: 1, account name: Account 1, account balance: 0.0 " +
+                "Account number: 100, account name: Account 3, account balance: 100.0 ",
                 testBank.printAllBankAccounts());
     }
 
     @Test
     public void printAllBankAccounts() {
-        assertEquals("Account number: 1, account name: Account 1, account balance: 0.0\n" +
-                "Account number: 2, account name: Account 2, account balance: 10.0\n" +
-                "Account number: 100, account name: Account 3, account balance: 100.0\n",
+        assertEquals("Account number: 1, account name: Account 1, account balance: 0.0 " +
+                "Account number: 2, account name: Account 2, account balance: 10.0 " +
+                "Account number: 100, account name: Account 3, account balance: 100.0 ",
                 testBank.printAllBankAccounts());
 
     }
