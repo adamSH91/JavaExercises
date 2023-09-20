@@ -14,9 +14,25 @@ public class Bank2 {
         return bankAccounts;
     }
 
-    public void setBankAccounts(Set<BankAccount> bankAccounts) {
-        this.bankAccounts = bankAccounts;
+    public void createBankAccount(BankAccount newBankAccount) throws Exception{
+        if (bankAccounts.contains(newBankAccount)) {
+            throw new Exception("There is already an account with the same number");
+        } else {
+            bankAccounts.add(newBankAccount);
+        }
     }
 
+    public void deleteBankAccount(BankAccount bankAccount) {
+        if (!bankAccounts.contains(bankAccount)) return;
 
+        bankAccounts.remove(bankAccount);
+    }
+
+    public BankAccount findBankAccount(int accountNumber) {
+        for (BankAccount bankAccount: bankAccounts) {
+            if (bankAccount.getAccountNumber() == accountNumber) return bankAccount;
+        }
+
+        return null;
+    }
 }
