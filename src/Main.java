@@ -67,5 +67,12 @@ public class Main {
         bank.removeBankAccountByAccountNumber(1);
         bank.printAllBankAccounts();
 
+        System.out.println("----");
+
+        bank.addAccount(new BankAccount("Account 1", 1, 0.0));
+        bank.addAccount(new BankAccount("Account 3", 100, 100.0));
+        System.out.println(bank.calculateBalanceAverageForAllAccounts());
+
+
     }
 }

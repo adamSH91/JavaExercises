@@ -63,4 +63,13 @@ public class Bank {
             }
         }
     }
+
+    public double calculateBalanceAverageForAllAccounts() {
+        double balancesSum = 0.0;
+        for (BankAccount bankAccount: bankAccounts) {
+            balancesSum += bankAccount.getBalance();
+        }
+
+        return Math.floor(balancesSum / bankAccounts.size() * 100) / 100;
+    }
 }
