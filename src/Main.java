@@ -50,6 +50,7 @@ public class Main {
         IFlyable plane = new Plane(2010, "engine", 50.0, true, 100.0);
         plane.fly(100.0);
 
+        /*
         Bank bank = new Bank();
         bank.addAccount(new BankAccount("Account 1", 1, 0.0));
         bank.addAccount(new BankAccount("Account 2", 2, 10.0));
@@ -73,6 +74,7 @@ public class Main {
         bank.addAccount(new BankAccount("Account 1", 1, 0.0));
         bank.addAccount(new BankAccount("Account 3", 100, 100.0));
         System.out.println(bank.calculateBalanceAverageForAllAccounts());
+        */
 
         System.out.println("---Generics---");
 
@@ -87,5 +89,21 @@ public class Main {
         WrapperInterface<Character, Integer> w2 = new Wrapper<>();
         w2.add('a', 1);
         System.out.println(w2);
+
+        System.out.println("---Lambdas---");
+        Bank bank = new Bank();
+        bank.addAccount(new BankAccount("Account 2", 2, 10.0));
+        bank.addAccount(new BankAccount("Account 3", 100, 100.0));
+        bank.addAccount(new BankAccount("Account 1", 1, 0.0));
+
+        BankAccount bankAccount4 = new BankAccount("Account 4", 4, 500.0);
+        bank.addAccount(bankAccount4);
+
+        System.out.println(bank.printByAccountNumber());
+        System.out.println(bank.sortBankAccounts());
+        System.out.println(bank.hasAccount(1));
+        System.out.println(bank.hasAccount(8));
+        bank.removeBankAccount(bankAccount4);
+        System.out.println(bank.printByAccountNumber());
     }
 }

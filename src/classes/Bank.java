@@ -39,8 +39,20 @@ public class Bank {
         return sb.toString();
     }
 
+    public String printByAccountNumber() {
+        StringBuilder sb = new StringBuilder();
+        bankAccounts.stream().mapToInt
+                (bankAccount -> bankAccount.getAccountNumber()).forEach
+                (accountNumber -> sb.append(accountNumber + "\n"));
+        return sb.toString();
+    }
+
     public void removeBankAccountByIndex(int index) {
         bankAccounts.remove(index);
+    }
+
+    public void removeBankAccount(BankAccount bankAccountToRemove) {
+        bankAccounts.removeIf(bankAccount -> bankAccount == bankAccountToRemove);
     }
 
     public void removeBankAccountByAccountNumber(int accountNumber) {
@@ -48,8 +60,19 @@ public class Bank {
     }
 
     public double calculateBalanceAverageForAllAccounts() {
-        double balancesSum = bankAccounts.stream().filter
-                (bankAccount -> bankAccount.getBalance() >= 0.0).mapToDouble(BankAccount::getBalance).sum();
+        double balancesSum = bankAccounts.stream().mapToDouble
+                (BankAccount::getBalance).reduce
+                (0.0, Double::sum);
         return Math.floor(balancesSum / bankAccounts.size() * 100) / 100;
+    }
+
+    public boolean hasAccount(int accNum) {
+        return bankAccounts.stream().anyMatch(bankAccount -> bankAccount.getAccountNumber() == accNum);
+    }
+
+    public List<BankAccount> sortBankAccounts() {
+        return bankAccounts.stream().sorted
+                ((a, b) -> a.getAccountNumber() - b.getAccountNumber()).collect
+                (Collectors.toList());
     }
 }
