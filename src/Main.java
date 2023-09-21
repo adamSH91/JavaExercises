@@ -76,7 +76,6 @@ public class Main {
 
         System.out.println("---Generics---");
 
-
         WrapperInterface<Integer, String> w = new Wrapper<>();
         w.add(1, "Hello");
         w.add(2, "there");
@@ -84,5 +83,9 @@ public class Main {
         System.out.println(w.getValue(1));
         w.remove(2);
         System.out.println(w);
+
+        WrapperInterface<Character, Integer> w2 = new Wrapper<>();
+        w2.add('a', 1);
+        System.out.println(w2);
     }
 }
