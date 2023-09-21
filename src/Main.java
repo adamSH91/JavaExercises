@@ -2,6 +2,7 @@ import animals.*;
 import classes.*;
 import interfaces.IDriveable;
 import interfaces.IFlyable;
+import interfaces.WrapperInterface;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -73,6 +74,15 @@ public class Main {
         bank.addAccount(new BankAccount("Account 3", 100, 100.0));
         System.out.println(bank.calculateBalanceAverageForAllAccounts());
 
+        System.out.println("---Generics---");
 
+
+        WrapperInterface<Integer, String> w = new Wrapper<>();
+        w.add(1, "Hello");
+        w.add(2, "there");
+        System.out.println(w);
+        System.out.println(w.getValue(1));
+        w.remove(2);
+        System.out.println(w);
     }
 }
